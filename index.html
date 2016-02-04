@@ -1,66 +1,23 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Rski.GitHub.io by rski</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+---
+layout: default
+---
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/rski">View On GitHub</a></li>
-        </nav>
-      </div><!-- end header -->
+<div class="home">
 
-    <div class="wrapper">
+  <h1 class="page-heading">Posts</h1>
 
-      <section>
-        <div id="title">
-          <h1>Rski.GitHub.io</h1>
-          <p></p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/rski">rski</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-        <p>Recent Imperial College London graduate.</p>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-<p>Currently working at Intracom Telecom Greece as a DevOps engineer.</p>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-<h3>
-<a id="interests" class="anchor" href="#interests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interests</h3>
-
-<p>I enjoy <a href="https://www.goodreads.com/user/show/22642100-rom">books</a> [Goodreads] and have been trying to complete <a href="https://www.goodreads.com/user_challenges/2925698">a reading challenge</a> [Goodreads] this year like last year. When circumstances allowed I also tried my hand at <a href="https://fitocracy.com/profile/rski">Olympic Weightlifting</a> [Fitocracy] and occasionally put effort in cooking.</p>
-
-<h3>
-<a id="programming-interests" class="anchor" href="#programming-interests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Programming Interests</h3>
-
-<p>Mostly Python, C, Ruby and Lua. I dabble in Puppet and occasionally in Haskell.My Beng project was parallelising part of the Testu01 library, specifically {small,,Big} Crush.</p>
-
-<p>The editor I prefer is (neo)vim, the rather limited configurations for which can be found <a href="https://github.com/rski/dotfiles/blob/master/.vimrc">here</a>[Github]. I have tried spacemacs in the past and will probably do so again in the future.</p>
-
-<h3>
-<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h3>
-
-<p>I can be found on <a href="http://www.linkedin.com/in/rskiad">LinkedIn</a>, <a href="https://github.com/rski">Github</a> and my Freenode name is rski.</p>
-
-<p>A possibly outdated CV is available <a href="http://www.doc.ic.ac.uk/%7Ers3011/RskiCV.pdf">here</a> [doc.ic.ac.uk]</p>
-      </section>
-
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
-</html>
+</div>
