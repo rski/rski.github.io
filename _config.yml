@@ -7,7 +7,6 @@
 
 # Site settings
 title: Rski
-email: rom.skiad at gmail dot com
 description: > # this means to ignore newlines until "baseurl:"
   Reader, programmer, dreamweaver.
 baseurl: "" # the subpath of your site, e.g. /blog
