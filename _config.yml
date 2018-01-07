@@ -11,7 +11,6 @@ description: > # this means to ignore newlines until "baseurl:"
   Reader, programmer, dreamweaver.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://rski.github.io" # the base hostname & protocol for your site
-twitter_username: rskiad
 github_username:  rski
 
 # Build settings
