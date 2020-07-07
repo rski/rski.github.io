@@ -1,5 +1,5 @@
 ---
-title: Adventures in Go modules #1: Gently removing dependency adhesions
+title: "Adventures  in Go modules #1: Gently removing dependency adhesions"
 ---
 
 One of the things that I have to deal with in Go from time to time is how easy it is to pick up new dependencies. Add an import and suddenly a binary's import graph doubles. Sometimes a trick or two are needed to avoid pulling in more code than is needed, and this writeup is about one of those tricks. This will be a build up from starting a new module, adding a few dependencies and then using the hack to remove a few dependencies, corresponding to more than 40k lines of code.
