@@ -1,6 +1,4 @@
 how to run this thing locally
 
-docker run -e LC_ALL=C.UTF-8 -v (pwd):/src/ -p 80:8080   --rm -it ruby:2f.7.1-buster bash
-cd /src
-bundle install # wait for nokogiri, sigh
-bundle exec jekyll serve -P 8080 -H 0.0.0.0
+nix-shell
+bundle exec jekyll serve
