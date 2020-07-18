@@ -8,8 +8,8 @@ The reason for that is that they are the best bang for your buck by far. They ar
 
 This is the sort of thing that ineffassign prevents:
 
-    func getDataFromRpc() (string, error){
-    	rand.Seed(time.Now().UnixNano())
+    func getDataFromRpc() (string, error) {
+        rand.Seed(time.Now().UnixNano())
 	    data := []struct {
 		    v   string
 		    err error
@@ -47,7 +47,7 @@ This is valid:
 
     func foo() error { return fmt.Errorf("always errors out" ) }
     func bar() { foo() }
-    func baz() string { foo() }
+    func baz() string { foo(); return "" }
 
 
 And so are all these:
