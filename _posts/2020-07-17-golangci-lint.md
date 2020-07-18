@@ -126,4 +126,4 @@ This nudges towards `var exist bool` or `bool := false`. Clearly there is no bug
 
 [^3]: Not necessarily a good decision, you can always find yourself staring at git blame wondering why.
 
-[^4]: according to git and revgrep, using the `new-` settings in the config. Nowadays it works, a long time ago I found out the hard way it [didn't](https://github.com/rski/revgrep/commit/47e4fa165a7e434ef295b6837621de2d4f9db6b1)
+[^4]: according to git and revgrep, using the `new-` settings in the [config](https://golangci-lint.run/usage/configuration/). Nowadays it works, a long time ago I found out the hard way it [didn't](https://github.com/rski/revgrep/commit/47e4fa165a7e434ef295b6837621de2d4f9db6b1)
