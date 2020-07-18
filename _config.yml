@@ -7,7 +7,7 @@
 
 # Site settings
 ---
-title: cat /dev/random
+title: It was a hardware issue
 description: >
   Emacs weenie
 baseurl: ""  # the subpath of your site, e.g. /blog
