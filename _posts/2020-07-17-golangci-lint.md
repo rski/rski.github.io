@@ -79,7 +79,7 @@ For example:
 No one has to fix the unchecked error, until they touch the call in `bar()`. This works well, until you realise there are transformations where this heuristic falls flat. This is still true according to the latest golangci-lint, 1.28.3.
 
 Here is an example of this in action:
-```
+
     // from
     func foo() { }
     func bar() {
@@ -90,7 +90,6 @@ Here is an example of this in action:
     func bar() {
         foo()
     }
-```
 
 Since the call to `foo()` is not touched, golangci-lint considers the unchecked error pre-existing and does not report it! The check is completely elided on changes that simply go from zero returns to a single error return. This simply makes the check not as useful as it could be, allowing regressions to merge over time.
 
