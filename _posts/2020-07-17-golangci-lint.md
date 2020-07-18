@@ -52,10 +52,10 @@ This is valid:
 
 And so are all these:
 
-    func foo() error { return fmt.Errorf("always errors out" ) }
+    func foo() error { return fmt.Errorf("always errors out") }
     func bar() { _ = foo() }
 
-    func foo() (string, error) { return "", fmt.Errorf("always errors out" ) }
+    func foo() (string, error) { return "", fmt.Errorf("always errors out") }
     func bar() string { s, _ := foo(); return s  }
 
 The only difference is that the first example carries no indication where this was intentional or not. errcheck enforces that error values are at least assigned to `_`, therefore being explicit that a decision was made to ignore the error[^3].
