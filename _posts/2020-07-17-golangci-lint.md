@@ -97,6 +97,29 @@ The other problem with retrofitting is that the cleanup can be boring and take a
 
 Why go through that, when simply adding these linters from the start does the trick and saves you from bugs?
 
+# Addendum - 18th July
+
+I got a bit curious about k8s' code, and ran ineffassign against it. There is _one_ case where `ineffassign` could be considered noisy, and that is using `foo := true` instead of `var foo bool`:
+
+
+    golangci-lint run --exclude-use-default=false --disable-all --enable=ineffassign --tests=false ./pkg/util/ebtables/...
+    pkg/util/ebtables/ebtables.go:147:2: ineffectual assignment to `exist` (ineffassign)
+	    exist := true
+
+The code in question:
+
+    func (runner *runner) DeleteRule(table Table, chain Chain, args ...string) error {
+        exist := true
+        fullArgs := makeFullArgs(table, opListChain, chain, fullMac)
+        out, err := runner.exec.Command(cmdebtables, fullArgs...).CombinedOutput()
+        if err != nil {
+                exist = false
+        } else {
+                exist = checkIfRuleExists(string(out), args...)
+        }
+
+This nudges towards `var exist bool` or `bool := false`. Clearly there is no bug here, the result is the same either way, so it boils down to the style used when declaring variables.
+
 [^1]: good
 
 [^2]: Rust
