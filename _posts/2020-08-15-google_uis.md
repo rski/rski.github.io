@@ -32,7 +32,7 @@ I really, really dislike Google's magic, out of spec emails. I think I received 
 
 # The Google Chat
 
-By far the biggest issue with GChat is that every user facing update on Android makes it consistently and considerably worse. The most recent change is twofold:
+By far my biggest issue with GChat is that every user facing update on Android makes it consistently and considerably worse. The most recent change is twofold:
 
 - The colour for unread channels went from making the channel's name a non-intrusive bold, to a red dot next to the channel name.
 - There is no distinction between channels that have notifications and channels that are simply unread!
