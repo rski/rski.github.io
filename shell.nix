@@ -11,4 +11,5 @@ let
 in stdenv.mkDerivation {
   name = name;
   buildInputs = [gems ruby];
+  src = ./.;
 }
