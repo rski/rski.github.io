@@ -90,13 +90,13 @@ For a NixOS system, on top of this, `environment.enableDebugInfo = true` needs t
 
 I am not sure whether other settings are needed to make this work on a non-NixOS system, as I have not experimented on one. I would expect none.
 
-- installing via `systemPackages` on NixOS
+- installing via `environment.systemPackages` on NixOS
 
 This only requires setting `separateDebugInfo = true` in the override and `environment.enableDebugInfo = true` in the NixOS config. The debug info in this case will be available under `/run/current-system/sw/lib/debug` instead of `~/.nix-profile`.
 
-- `home-manager`
+- installing via `home-manager`
 
-home-manager provides `home.enableDebugInfo`. This will add `debug` to extraOutputsToInstall and will also set `$NIX_DEBUG_INFO_DIRS` to include the `lib/debug` directory with the resulting symlinks. This is similar to the equivalent NixOS setting. This allows `gdb` to find the debug symbols, according to https://github.com/nix-community/home-manager/commit/0056a5aea1a7b68bdacb7b829c325a1d4a3c4259/
+home-manager provides `home.enableDebugInfo`. This will add `debug` to `extraOutputsToInstall` and will also set `$NIX_DEBUG_INFO_DIRS` to include the `lib/debug` directory with the resulting symlinks. This is similar to the equivalent NixOS setting. This allows `gdb` to find the debug symbols, according to [the oridinal PR that introduced it](https://github.com/nix-community/home-manager/commit/0056a5aea1a7b68bdacb7b829c325a1d4a3c4259)
 
 I would expect home-manager to not require overriding `meta.outputsToInstall` either, only `separateDebugInfo` if the original derivation does not set it.
 
@@ -110,6 +110,6 @@ And, as a tip from me to past me that you might also find useful: to debug somet
 
 # Useful links #
 
-- https://nixos.wiki/wiki/Debug_Symbols This NixOS wiki entry also explains teaching gdb how to find the source.
-- https://nixos.mayflower.consulting/blog/2021/09/06/coredumpctl/ This was posted while I was writing. That is what I get for procrastinating. I would like to consider these articles as a good complement to each other.
+- [Debug Symbols on NixOS wiki](https://nixos.wiki/wiki/Debug_Symbols) This NixOS wiki entry also explains teaching gdb how to find the source.
+- [Mayflower - Inspecting coredumps like it's 2021](https://nixos.mayflower.consulting/blog/2021/09/06/coredumpctl) This was posted while I was writing. That is what I get for procrastinating. I would like to consider these articles as a good complement to each other.
 - [Nix: Under the hood by Gabriella Gonzalez](https://www.youtube.com/watch?v=GMQPzv3Sx58) Honourable mention, this is a very good talk from which I learned a lot of useful tricks, some of which ended up in this page.
