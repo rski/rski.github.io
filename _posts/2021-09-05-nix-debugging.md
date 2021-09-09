@@ -69,7 +69,7 @@ The great advantage of this is that for slower to compile packages or low level 
 
 ## caveats ##
 
-I believe the biggest caveat at this point is figuring out what needs to be configured so that nix creates a symlink unlder `~/.nix-profile/lib/debug`, pointing to the debug info in the store. The Nix documentation implies that it should just work if you do some things, but that is not the case. Here is a case by case breakdown of what neeeds to be done:
+I believe the biggest caveat at this point is figuring out what needs to be configured so that nix creates a symlink in a well known location pointing to the debug info in the store. Here is a case by case breakdown of what neeeds to be done and where the symlink ends up.
 
 - installing the package via `nix-env`
 
@@ -84,7 +84,7 @@ gnucash.overrideAttrs (old: rec {
 ```
 
 This is because `nix-env` only installs `out`. `meta.outputsToInstall` needs to explicitly contain the `debug` output.
-[The Nix manual](https://nixos.org/manual/nixpkgs/stable/#stdenv-separateDebugInfo) says that `separateDebugInfo` will automatically add `debug` to the derivation's outputs, which is right, but it will not be installed as is implied.
+[The Nix manual](https://nixos.org/manual/nixpkgs/stable/#stdenv-separateDebugInfo) says that `separateDebugInfo` will automatically add `debug` to the derivation's outputs, which is right. However, it might not be installed by default.
 
 For a NixOS system, on top of this, `environment.enableDebugInfo = true` needs to be set. The code for `environment.enableDebugInfo` is [here.](https://github.com/NixOS/nixpkgs/blob/7e9b0dff974c89e070da1ad85713ff3c20b0ca97/nixos/modules/config/debug-info.nix)
 
@@ -96,7 +96,7 @@ This only requires setting `separateDebugInfo = true` in the override and `envir
 
 - installing via `home-manager`
 
-home-manager provides `home.enableDebugInfo`. This will add `debug` to `extraOutputsToInstall` and will also set `$NIX_DEBUG_INFO_DIRS` to include the `lib/debug` directory with the resulting symlinks. This is similar to the equivalent NixOS setting. This allows `gdb` to find the debug symbols, according to [the oridinal PR that introduced it](https://github.com/nix-community/home-manager/commit/0056a5aea1a7b68bdacb7b829c325a1d4a3c4259)
+home-manager provides `home.enableDebugInfo`. This will add `debug` to `extraOutputsToInstall` and will also set `$NIX_DEBUG_INFO_DIRS` to include the `lib/debug` directory with the resulting symlinks. This is similar to the equivalent NixOS setting. This allows `gdb` to find the debug symbols, according to [the original PR that introduced it](https://github.com/nix-community/home-manager/commit/0056a5aea1a7b68bdacb7b829c325a1d4a3c4259)
 
 I would expect home-manager to not require overriding `meta.outputsToInstall` either, only `separateDebugInfo` if the original derivation does not set it.
 
