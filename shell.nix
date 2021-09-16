@@ -1,4 +1,4 @@
-with (import <nixpkgs> {});
+with import <nixpkgs> {};
 let
   name = "rski.github.io";
 in
@@ -8,8 +8,6 @@ let
     inherit ruby;
     gemdir = ./.;
   };
-in stdenv.mkDerivation {
-  name = name;
-  buildInputs = [gems ruby];
-  src = ./.;
+in mkShell {
+  nativeBuildInputs = [gems ruby];
 }
