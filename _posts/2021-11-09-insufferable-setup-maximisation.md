@@ -2,17 +2,17 @@
 title: "Maximising the insufferability of my setup"
 ---
 
-Thanks to the time afforded to me by the pandemic and the long sabbatical, I have finally managed to produce an extremely insufferable and unusable computer setup. To encourage other into taking computer use to its logical end, making it as horrible as possible for everyone but the owner, here is a list of what I did.
+Thanks to the time afforded to me by the pandemic and the long sabbatical, I have finally managed to produce an extremely insufferable and unusable computer setup. To encourage others into taking computer use to its logical end, making it as horrible as possible for everyone but the owner, here is a list of what I did.
 
 # Install NixOS
 
 Right from the start, this brings us a plethora of benefits:
  - a system specific language to configure everything, along with multiple CLI-only tools to interact with your computer.
- - the linker not being where a lot of binaries downloaded from the internet expect it to be. This one is great. Because NixOS doesn't have `/lib/` like other linux distros, executing a binary that expects it to be there produces a single mysterious error that will immediately throw everyone off the scent of getting anything useful done:
+ - the linker not being where a lot of binaries downloaded from the internet expect it to be. This one is great. Because NixOS doesn't have `/lib/` like other linux distros, executing a binary that expects say `/lib/ld-linux.so.2` to be there produces a single mysterious error that will immediately throw everyone off the scent of getting anything useful done:
 
      $ ./foo
      bash: ./foo: No such file or directory
-- the FHS does not exist on NixOS, so ever things  that do get past the above hurlde will most likely blow up later. That includes missing dynamic libraries or even assets like GTK themes.
+- the FHS does not exist on NixOS, so even programs that do get past the above hurlde will most likely blow up later. That includes missing dynamic libraries or even assets like GTK themes.
 
 # Use home-manager to manage everything user-related
 
