@@ -8,9 +8,9 @@ As I put the finishing tweaks on migrating my dotfiles from NixOS to my new Ubun
 
 Something the usual methods of managing dotfiles have in common is that they leave a lot of things up to the whims of the underlying system. In the past, the first step I would be forced to take is tweak my awesomewm config to cater to the idiosyncrasies of the packaged awesome. In theory, the awesomewm version was the same, in practice libraries were missing, certain things were slightly different or on different paths, and it was always a pain to figure out battery indicators out of all things. On one distro cbatticon is not packaged and the lua lib for awesome is easier to find and use, on another the opposite. Nix makes all that go away by managing everything: the installation of awesomewm, cbatticon and any awesome libraries written in lua that I want to use, be they already available in nixpkgs or repos on $hosted\_git\_service that I want to pull locally.
 
-Invariably when Nix is mentioned, a big selling point is the reproducability of builds and how you can pin the inputs to specific versions to avoid __impurities_[^1]. That is very nice and useful, but not really needed in this case. I simply point my systems to the unstable nix channel, getting 90% of the benefit for 10% of the effort: Two versions of the same nix package off by a couple of days are almost always functionally equivalent, bar any breaking changes merging. Two different distros' versions of the same piece of software can be wildly different.
+Invariably when Nix is mentioned, a big selling point is the reproducibility of builds and how you can pin the inputs to specific versions to avoid __impurities_[^1]. That is very nice and useful, but not really needed in this case. I simply point my systems to the unstable nix channel, getting 90% of the benefit for 10% of the effort: Two versions of the same nix package off by a couple of days are almost always functionally equivalent, bar any breaking changes merging. Two different distros' versions of the same piece of software can be wildly different.
 
-The only caviat is that nix can only take you so far. For example, home-manager generates an .xsession file that will start awesomewm, but you need sudo access on Ubuntu to add Xsession as a login option[^2].
+The only caveat is that nix can only take you so far. For example, home-manager generates an .xsession file that will start awesomewm, but you need sudo access on Ubuntu to add Xsession as a login option[^2].
 
 # Nix is more than a difficult symlink creator
 
@@ -47,7 +47,7 @@ It is entirely possible[^5] to write out a data structure in Nix and have that s
 
 # Customizing programs becomes a breeze
 
-The Nix community provides overlays for newever versions of programs that I very frequently want. I have been using the emacs overlay to get Emacs built from master for a long time now, and it works wonderfully. And yes, I do use home-manager to [set up the overlay](https://gitlab.com/rski/dotfiles/-/blob/ebbeb2c1a3b4b019675ce82a84e1016b3d8c6dcf/nixpkgs/home.nix#L399). The more time passes since the last time I had to search "emacs install build deps ubuntu", the happier I am as a person.
+The Nix community provides overlays for newer versions of programs that I very frequently want. I have been using the emacs overlay to get Emacs built from master for a long time now, and it works wonderfully. And yes, I do use home-manager to [set up the overlay](https://gitlab.com/rski/dotfiles/-/blob/ebbeb2c1a3b4b019675ce82a84e1016b3d8c6dcf/nixpkgs/home.nix#L399). The more time passes since the last time I had to search "emacs install build deps Ubuntu", the happier I am as a person.
 
 In a similar fashion, overrides make it possible to take something that is already packaged in nixpkgs and build it with different flags, patches or whatever else you might come up with.
 
