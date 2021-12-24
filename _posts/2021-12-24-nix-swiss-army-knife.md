@@ -67,7 +67,7 @@ The other issue that I encountered is that Nix + OpenGL on non-NixOS systems is 
 
 [^1]: Whatever that might mean ¯\_(ツ)_/¯
 
-[^2]: https://gitlab.com/rski/dotfiles/-/commit/22ec88186de7f54808d543a4622ea328cb17ddda
+[^2]: [https://gitlab.com/rski/dotfiles/-/commit/22ec88186de7f54808d543a4622ea328cb17ddda]()
 
 [^3]: something something learning curve
 
@@ -75,4 +75,4 @@ The other issue that I encountered is that Nix + OpenGL on non-NixOS systems is 
 
 [^5]: At least I think it is. I've never done it.
 
-[^6]: This does sound suspiciously similar to coloured functions, https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/
+[^6]: This does sound suspiciously similar to coloured functions, [https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/]()
