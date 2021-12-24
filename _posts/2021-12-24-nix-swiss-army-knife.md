@@ -61,7 +61,7 @@ Similar to NixOS, `home-manager` provides modules and comes with man pages and o
 
 Nix is not all that perfect. Other than the aforementioned learning curve and the language being a bit "not that great", throwing nixpkgs into the mix of a non-NixOS distribution can break things. This is an unfortunate result of how programs built with Nix have their runtime deps isolated.
 
-One problem that is easy to run into, is spawining non-nix programs from within ones installed with Nix can cause them to blow up. `gnome-terminal` in Ubuntu has been tested to work with the python libraries under `/usr/share`. If it is started by a program whose wrapper sets `PYTHONPATH`, that won't work out well[^6]. A simple solution is to avoid mixing programs, probably using as much Nix as possible.
+One problem that is easy to run into is Nix programs spawning non-Nix processes can cause the spawned process to blow up. `gnome-terminal` in Ubuntu has been tested to work with the python libraries under `/usr/share`. If it is started by a program whose wrapper sets `PYTHONPATH`, that won't work out well[^6]. A simple solution is to avoid mixing programs, probably using as much Nix as possible.
 
 The other issue that I encountered is that Nix + OpenGL on non-NixOS systems is a bit broken. Thankfully [nixGL](https://github.com/guibou/nixGL) fixes all that and it worked perfectly for me without any effort. Special shout out to their test suite being an executable Haskell file that uses nix-shell as the interpreter that installs its dependencies and runs it.
 
