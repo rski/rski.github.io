@@ -2,7 +2,7 @@
 title: "Nix: the Swiss Army knife of dotfile management"
 ---
 
-As I put the finishing tweaks on migrating my dotfiles from NixOS to my new Ubuntu-based work laptop, it dawned on me how much easier Nix has made the whole process. Last time I did this, it was from NixOS to NixOS, which was basically free. This time, Nix really got to shine, and I'd be remiss if I didn't compile a few notes about it. So, welcome to this weeks' Nix propaganda article: Xmas edition.
+As I put the finishing tweaks on migrating my dotfiles from NixOS to my new Ubuntu-based work laptop, it dawned on me how much easier Nix has made the whole process. Last time I did this, it was from NixOS to NixOS, which was basically free. This time, Nix really got to shine, and I'd be remiss if I didn't compile a few notes about it. So, welcome to this week's Nix propaganda article: Xmas edition.
 
 # Config files become completely portable between systems
 
